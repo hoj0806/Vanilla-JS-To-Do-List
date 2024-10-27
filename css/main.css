@@ -1,1 +1,19 @@
 @import "base/reset.css";
+
+/* Layout */
+
+body {
+  position: relative;
+  height: 100vh;
+}
+
+.wrapper {
+  background-color: orange;
+  width: 8rem;
+  height: 13rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+}
