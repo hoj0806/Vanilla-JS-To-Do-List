@@ -101,6 +101,12 @@ body {
   background-color: yellow;
 }
 
+.list-edit-btn {
+  background-color: pink;
+  width: 1rem;
+  height: 1rem;
+}
+
 /* pop-up */
 
 .pop-up-box {
