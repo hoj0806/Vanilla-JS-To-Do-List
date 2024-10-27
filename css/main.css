@@ -33,3 +33,15 @@ body {
   text-align: center;
   font-size: 0.6rem;
 }
+
+/* feature-box */
+
+.feature-box {
+  background-color: red;
+  display: flex;
+  height: 1.5rem;
+}
+
+.feature-box__input {
+  width: 100%;
+}
