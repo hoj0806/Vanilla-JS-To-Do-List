@@ -42,6 +42,31 @@ body {
   height: 1.5rem;
 }
 
+.feature-box__search {
+  flex: 1;
+}
+
 .feature-box__input {
   width: 100%;
+  border: none;
+  background-color: yellow;
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 0.4rem;
+  margin-left: 0.2rem;
+  padding: 0.2rem;
+}
+
+.feature-box__add-button-box {
+  flex: 0 0 1.8rem;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-button-text {
+  font-size: 0.5rem;
 }
