@@ -16,4 +16,20 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 2px;
+  overflow: hidden;
+}
+
+/* header */
+
+.header {
+  background-color: green;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__title {
+  text-align: center;
+  font-size: 0.6rem;
 }
