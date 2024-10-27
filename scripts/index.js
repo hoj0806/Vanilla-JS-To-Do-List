@@ -13,7 +13,7 @@ listItems.forEach((item) => {
   todoList.push({
     title: item.textContent,
     isFinished: false,
-    order: item.dataset.order,
+    order: Number(item.dataset.order),
   });
 });
 
@@ -26,13 +26,20 @@ popupBtn.addEventListener("click", () => {
   todoList.push({
     title: addInput.value,
     isFinished: false,
+    order: listItems.length,
   });
   popupBox.classList.remove("show-pop-up");
   console.log(todoList);
-  const html = `<li class="list-item">${addInput.value}</li>`;
+  const html = `<li class="list-item" data-order="${listItems.length}">${addInput.value}<button class="list-delete-btn"></button></li>`;
   listContainer.insertAdjacentHTML("beforeend", html);
 });
 
 listContainer.addEventListener("click", (e) => {
-  console.log(e.target);
+  if (e.target.classList.contains("list-delete-btn")) {
+    const list = e.target.parentNode;
+    const deleteOrder = list.dataset.order;
+    list.remove();
+    todoList.splice(deleteOrder, 1);
+  }
+  console.log(todoList);
 });
