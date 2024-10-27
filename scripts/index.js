@@ -8,7 +8,7 @@ const listItems = document.querySelectorAll(".list-item");
 const listDeleteBtns = document.querySelectorAll(".list-delete-btn");
 
 let todoList = [];
-
+let selectList;
 listItems.forEach((item) => {
   todoList.push({
     title: item.textContent,
@@ -20,18 +20,27 @@ listItems.forEach((item) => {
 // Event handler
 listAddBtn.addEventListener("click", () => {
   popupBox.classList.add("show-pop-up");
+  popupBtn.textContent = "확인";
+  document.querySelector(".pop-up-title").textContent = "할 일 추가하기";
 });
 
-popupBtn.addEventListener("click", () => {
-  todoList.push({
-    title: addInput.value,
-    isFinished: false,
-    order: listItems.length,
-  });
+popupBtn.addEventListener("click", (e) => {
+  if (e.target.textContent === "확인") {
+    todoList.push({
+      title: addInput.value,
+      isFinished: false,
+      order: listItems.length,
+    });
+
+    const html = `<li class="list-item" data-order="${listItems.length}">
+     <div class="list-title">${addInput.value}</div>
+    <button class="list-delete-btn"></button><button class="list-edit-btn"></button></li>`;
+    listContainer.insertAdjacentHTML("beforeend", html);
+  } else if (e.target.textContent === "수정") {
+    selectList.children[0].textContent = addInput.value;
+  }
+
   popupBox.classList.remove("show-pop-up");
-  console.log(todoList);
-  const html = `<li class="list-item" data-order="${listItems.length}">${addInput.value}<button class="list-delete-btn"></button></li>`;
-  listContainer.insertAdjacentHTML("beforeend", html);
 });
 
 listContainer.addEventListener("click", (e) => {
@@ -41,5 +50,12 @@ listContainer.addEventListener("click", (e) => {
     list.remove();
     todoList.splice(deleteOrder, 1);
   }
-  console.log(todoList);
+
+  if (e.target.classList.contains("list-edit-btn")) {
+    popupBox.classList.add("show-pop-up");
+    document.querySelector(".pop-up-title").textContent = "할 일 수정하기";
+    const list = e.target.parentNode;
+    selectList = list;
+    popupBtn.textContent = "수정";
+  }
 });
