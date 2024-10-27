@@ -5,13 +5,15 @@ const addInput = document.querySelector(".add-input");
 const popupBtn = document.querySelector(".pop-up-confirm-btn");
 const listContainer = document.querySelector(".todo-list-container");
 const listItems = document.querySelectorAll(".list-item");
-const listDeleteBtn = document.querySelector(".list-delete-btn");
+const listDeleteBtns = document.querySelectorAll(".list-delete-btn");
+
 let todoList = [];
 
 listItems.forEach((item) => {
   todoList.push({
-    title: item.innerHTML,
+    title: item.textContent,
     isFinished: false,
+    order: item.dataset.order,
   });
 });
 
@@ -31,6 +33,6 @@ popupBtn.addEventListener("click", () => {
   listContainer.insertAdjacentHTML("beforeend", html);
 });
 
-listDeleteBtn.addEventListener("click", () => {
-  console.log("삭제");
+listContainer.addEventListener("click", (e) => {
+  console.log(e.target);
 });
