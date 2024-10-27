@@ -70,3 +70,8 @@ body {
 .add-button-text {
   font-size: 0.5rem;
 }
+
+.divider {
+  height: 0.2rem;
+  background-color: black;
+}
