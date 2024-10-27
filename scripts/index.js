@@ -5,7 +5,7 @@ const addInput = document.querySelector(".add-input");
 const popupBtn = document.querySelector(".pop-up-confirm-btn");
 const listContainer = document.querySelector(".todo-list-container");
 const listItems = document.querySelectorAll(".list-item");
-
+const listDeleteBtn = document.querySelector(".list-delete-btn");
 let todoList = [];
 
 listItems.forEach((item) => {
@@ -29,4 +29,8 @@ popupBtn.addEventListener("click", () => {
   console.log(todoList);
   const html = `<li class="list-item">${addInput.value}</li>`;
   listContainer.insertAdjacentHTML("beforeend", html);
+});
+
+listDeleteBtn.addEventListener("click", () => {
+  console.log("삭제");
 });

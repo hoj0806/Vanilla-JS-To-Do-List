@@ -95,6 +95,12 @@ body {
   padding: 0.2rem;
 }
 
+.list-delete-btn {
+  width: 1rem;
+  height: 1rem;
+  background-color: yellow;
+}
+
 /* pop-up */
 
 .pop-up-box {
