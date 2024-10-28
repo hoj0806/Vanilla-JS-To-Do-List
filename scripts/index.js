@@ -1,46 +1,48 @@
 // selectors
-const listAddBtn = document.querySelector(".feature-box__add-button-box");
+
+// popup
+const popupWrapper = document.querySelector(".pop-up-wrapper");
 const popupBox = document.querySelector(".pop-up-box");
-const addInput = document.querySelector(".add-input");
 const popupBtn = document.querySelector(".pop-up-confirm-btn");
+const popupTitle = document.querySelector(".pop-up-title");
+
+const listAddBtn = document.querySelector(".feature-box__add-button-box");
+const addInput = document.querySelector(".add-input");
 const listContainer = document.querySelector(".todo-list-container");
 const listItems = document.querySelectorAll(".list-item");
 const listDeleteBtns = document.querySelectorAll(".list-delete-btn");
 
-let todoList = [];
 let selectList;
-listItems.forEach((item) => {
-  todoList.push({
-    title: item.textContent,
-    isFinished: false,
-    order: Number(item.dataset.order),
-  });
-});
 
 // Event handler
+
+// list add button event
 listAddBtn.addEventListener("click", () => {
-  popupBox.classList.add("show-pop-up");
+  popupWrapper.classList.add("show-pop-up");
   popupBtn.textContent = "확인";
-  document.querySelector(".pop-up-title").textContent = "할 일 추가하기";
+  popupTitle.textContent = "할 일 추가하기";
 });
 
+// popup confirm button event
 popupBtn.addEventListener("click", (e) => {
   if (e.target.textContent === "확인") {
-    todoList.push({
-      title: addInput.value,
-      isFinished: false,
-      order: listItems.length,
-    });
-
-    const html = `<li class="list-item" data-order="${listItems.length}">
-     <div class="list-title">${addInput.value}</div>
-    <button class="list-delete-btn"></button><button class="list-edit-btn"></button></li>`;
+    const html = `<li class="list-item">
+              <div class="list-title">${addInput.value}</div>
+              <div class="list-button-box">
+                <button class="list-edit-btn">
+                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
+                </button>
+                <button class="list-delete-btn">
+                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
+                </button>
+              </div>
+            </li>`;
     listContainer.insertAdjacentHTML("beforeend", html);
   } else if (e.target.textContent === "수정") {
     selectList.children[0].textContent = addInput.value;
   }
 
-  popupBox.classList.remove("show-pop-up");
+  popupWrapper.classList.remove("show-pop-up");
 });
 
 listContainer.addEventListener("click", (e) => {

@@ -135,6 +135,7 @@ button {
   z-index: 1;
   position: relative;
   background-color: rgba(0, 0, 0, 0.3);
+  display: none;
 }
 
 .pop-up-box {
@@ -168,4 +169,8 @@ button {
   font-size: 2rem;
   width: 8rem;
   border-radius: 3px;
+}
+
+.show-pop-up {
+  display: block;
 }
