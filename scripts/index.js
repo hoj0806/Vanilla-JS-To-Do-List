@@ -55,6 +55,8 @@ listContainer.addEventListener("click", (e) => {
     popupTitle.textContent = "할 일 수정하기";
     popupBtn.textContent = "수정";
     const editItem = e.target.closest(".list-item");
+    const listTitle = editItem.children[0].textContent;
+    addInput.value = listTitle;
     selectList = editItem;
   }
 });
