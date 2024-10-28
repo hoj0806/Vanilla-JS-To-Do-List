@@ -9,8 +9,6 @@ const popupTitle = document.querySelector(".pop-up-title");
 const listAddBtn = document.querySelector(".feature-box__add-button-box");
 const addInput = document.querySelector(".add-input");
 const listContainer = document.querySelector(".todo-list-container");
-const listItems = document.querySelectorAll(".list-item");
-const listDeleteBtns = document.querySelectorAll(".list-delete-btn");
 
 let selectList;
 
@@ -46,13 +44,10 @@ popupBtn.addEventListener("click", (e) => {
 });
 
 listContainer.addEventListener("click", (e) => {
-  console.log(e.target);
+  // list delete button
   if (e.target.classList.contains("list-delete-btn")) {
-    console.log(123);
-    const list = e.target.parentNode;
-    const deleteOrder = list.dataset.order;
-    list.remove();
-    todoList.splice(deleteOrder, 1);
+    const deleteItem = e.target.closest(".list-item");
+    deleteItem.remove();
   }
 
   if (e.target.classList.contains("list-edit-btn")) {
