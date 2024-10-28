@@ -44,7 +44,9 @@ popupBtn.addEventListener("click", (e) => {
 });
 
 listContainer.addEventListener("click", (e) => {
+  console.log(e.target);
   if (e.target.classList.contains("list-delete-btn")) {
+    console.log(123);
     const list = e.target.parentNode;
     const deleteOrder = list.dataset.order;
     list.remove();
@@ -52,6 +54,7 @@ listContainer.addEventListener("click", (e) => {
   }
 
   if (e.target.classList.contains("list-edit-btn")) {
+    console.log(1);
     popupBox.classList.add("show-pop-up");
     document.querySelector(".pop-up-title").textContent = "할 일 수정하기";
     const list = e.target.parentNode;
