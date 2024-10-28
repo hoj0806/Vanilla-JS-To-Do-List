@@ -51,11 +51,10 @@ listContainer.addEventListener("click", (e) => {
   }
 
   if (e.target.classList.contains("list-edit-btn")) {
-    console.log(1);
-    popupBox.classList.add("show-pop-up");
-    document.querySelector(".pop-up-title").textContent = "할 일 수정하기";
-    const list = e.target.parentNode;
-    selectList = list;
+    popupWrapper.classList.add("show-pop-up");
+    popupTitle.textContent = "할 일 수정하기";
     popupBtn.textContent = "수정";
+    const editItem = e.target.closest(".list-item");
+    selectList = editItem;
   }
 });
