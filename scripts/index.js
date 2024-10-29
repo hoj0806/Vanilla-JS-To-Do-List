@@ -5,6 +5,8 @@ const popupWrapper = document.querySelector(".pop-up-wrapper");
 const popupBox = document.querySelector(".pop-up-box");
 const popupBtn = document.querySelector(".pop-up-confirm-btn");
 const popupTitle = document.querySelector(".pop-up-title");
+const editAndAddPopup = document.querySelector(".pop-up-edit-and-add");
+const readPopup = document.querySelector(".pop-up-read");
 
 const listAddBtn = document.querySelector(".feature-box__add-button-box");
 const addInput = document.querySelector(".add-input");
@@ -17,13 +19,15 @@ let selectList;
 // list add button event
 listAddBtn.addEventListener("click", () => {
   popupWrapper.classList.add("show-pop-up");
-  popupBtn.textContent = "확인";
+  popupBtn.textContent = "추가";
   popupTitle.textContent = "할 일 추가하기";
+  editAndAddPopup.classList.remove("hide-pop-up");
+  readPopup.classList.add("hide-pop-up");
 });
 
 // popup confirm button event
 popupBtn.addEventListener("click", (e) => {
-  if (e.target.textContent === "확인") {
+  if (e.target.textContent === "추가") {
     const html = `<li class="list-item">
               <div class="list-title">${addInput.value}</div>
               <div class="list-button-box">
@@ -58,5 +62,11 @@ listContainer.addEventListener("click", (e) => {
     const listTitle = editItem.children[0].textContent;
     addInput.value = listTitle;
     selectList = editItem;
+  }
+
+  if (e.target.classList.contains("list-title")) {
+    popupWrapper.classList.add("show-pop-up");
+    editAndAddPopup.classList.add("hide-pop-up");
+    readPopup.classList.remove("hide-pop-up");
   }
 });

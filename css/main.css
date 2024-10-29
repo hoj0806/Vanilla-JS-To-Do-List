@@ -151,6 +151,10 @@ button {
   text-align: center;
 }
 
+.pop-up-read {
+  background-color: rgb(170, 222, 255);
+}
+
 .pop-up-title {
   font-size: 2rem;
   margin-bottom: 8rem;
@@ -173,4 +177,8 @@ button {
 
 .show-pop-up {
   display: block;
+}
+
+.hide-pop-up {
+  display: none;
 }
