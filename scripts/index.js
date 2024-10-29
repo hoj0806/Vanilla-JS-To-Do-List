@@ -16,6 +16,9 @@ const listContainer = document.querySelector(".todo-list-container");
 const memoBtn = document.querySelector(".memo-button");
 const memoInput = document.querySelector(".memo-input");
 const memoContent = document.querySelector(".memo-content");
+const hasgTagInput = document.querySelector(".hashtag-input");
+const hasgTagBox = document.querySelector(".hashtagBox");
+
 let selectList;
 
 // Event handler
@@ -95,4 +98,13 @@ popupReadConfirmBtn.addEventListener("click", () => {
   memoContent.textContent = "";
   memoInput.value = "";
   popupWrapper.classList.remove("show-pop-up");
+});
+
+hasgTagInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    console.log("해시태그추가");
+    const hashTag = `<div>${e.target.value}</div>`;
+    hasgTagBox.insertAdjacentHTML("beforeend", hashTag);
+    e.target.value = "";
+  }
 });
