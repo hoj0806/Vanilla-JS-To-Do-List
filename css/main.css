@@ -153,6 +153,8 @@ button {
 
 .pop-up-read {
   background-color: rgb(170, 222, 255);
+  height: 50rem;
+  width: 40rem;
 }
 
 .pop-up-title {
@@ -175,6 +177,31 @@ button {
   border-radius: 3px;
 }
 
+.read-pop-up-title {
+  margin-bottom: 1rem;
+}
+
+.pop-up-memo {
+  width: 35rem;
+  height: 30rem;
+  background-color: #ffee58;
+  border-radius: 2rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.pop-up-read-title {
+  font-size: 3.5rem;
+  margin-left: 1.5rem;
+}
+
+.memo-input {
+  background-color: transparent;
+  width: 90%;
+  height: 80%;
+  display: none;
+  margin: 0 auto;
+}
 .show-pop-up {
   display: block;
 }
