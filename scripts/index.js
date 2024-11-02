@@ -18,7 +18,7 @@ const memoInput = document.querySelector(".memo-input");
 const memoContent = document.querySelector(".memo-content");
 const hasgTagInput = document.querySelector(".hashtag-input");
 const hasgTagBox = document.querySelector(".hashtagBox");
-
+const searchInput = document.querySelector(".feature-box__input");
 let selectList;
 
 // Event handler
@@ -105,6 +105,23 @@ hasgTagInput.addEventListener("keydown", (e) => {
     console.log("해시태그추가");
     const hashTag = `<div>${e.target.value}</div>`;
     hasgTagBox.insertAdjacentHTML("beforeend", hashTag);
+    selectList.insertAdjacentHTML("beforeend", hashTag);
     e.target.value = "";
   }
+});
+
+// search input fuction
+
+const listItems = document.querySelectorAll(".list-item");
+
+searchInput.addEventListener("input", (e) => {
+  const inputValue = e.target.value;
+
+  listItems.forEach((element) => {
+    if (!element.innerHTML.includes(inputValue)) {
+      element.classList.add("hide-pop-up");
+    } else {
+      element.classList.remove("hide-pop-up");
+    }
+  });
 });
