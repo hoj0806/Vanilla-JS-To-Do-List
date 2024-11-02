@@ -17,6 +17,7 @@ const selectors = {
 
   // popup read
   popupRead: document.querySelector(".popup__read"),
+  popupReadBtn: document.querySelector(".popup__read__button"),
   memoContent: document.querySelector(".popup__read__memo__content"),
   memoInput: document.querySelector(".popup__read__memo__input"),
   memoBtn: document.querySelector(".popup__read__memo__button"),

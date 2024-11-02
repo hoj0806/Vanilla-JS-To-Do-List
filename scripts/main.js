@@ -3,8 +3,14 @@ import selectors from "./selectors.js";
 let selectList;
 let addListTitle;
 let mode;
-
+let memoContent = "";
 // fuction
+
+const togglePopup = (popup) => {
+  selectors.popup.classList.toggle("show-content");
+  popup.classList.toggle("show-content");
+};
+
 const addList = () => {
   const listItemHTML = `<li class="list__item">
   <div class="list__item__title">${addListTitle}</div>
@@ -39,10 +45,6 @@ const setReadAndEditPopupContent = (mode) => {
   }
 };
 
-const initEditAndAddPopup = () => {
-  selectors.popup.classList.remove("show-content");
-  selectors.editAndAddInput.value = "";
-};
 // Event handler
 
 // <-----------task controls------------>
@@ -63,8 +65,7 @@ selectors.searchInput.addEventListener("input", (e) => {
 // add list
 selectors.listAddBtn.addEventListener("click", () => {
   mode = "add";
-  selectors.popup.classList.add("show-content");
-  selectors.popupRead.classList.add("hide-content");
+  togglePopup(selectors.popupEditAndAdd);
   setReadAndEditPopupContent(mode);
 });
 
@@ -77,7 +78,8 @@ selectors.popupEditAndAddBtn.addEventListener("click", () => {
   } else if (mode === "edit") {
     editList();
   }
-  initEditAndAddPopup();
+  togglePopup(selectors.popupEditAndAdd);
+  selectors.editAndAddInput.value = "";
 });
 
 selectors.editAndAddInput.addEventListener("keydown", (e) => {
@@ -87,7 +89,8 @@ selectors.editAndAddInput.addEventListener("keydown", (e) => {
     } else if (mode === "edit") {
       editList();
     }
-    initEditAndAddPopup();
+    togglePopup(selectors.popupEditAndAdd);
+    selectors.editAndAddInput.value = "";
   }
 });
 
@@ -95,6 +98,31 @@ selectors.editAndAddInput.addEventListener("input", (e) => {
   addListTitle = e.target.value;
 });
 
+// popup read
+
+selectors.memoBtn.addEventListener("click", (e) => {
+  let memoBtnText = selectors.memoBtn.textContent;
+
+  if (memoBtnText === "메모하기") {
+    e.target.textContent = "확인";
+    selectors.memoContent.textContent = "";
+  } else if (memoBtnText === "확인") {
+    e.target.textContent = "메모하기";
+    selectList.dataset.memo = selectors.memoInput.value;
+    selectors.memoContent.textContent = selectList.dataset.memo;
+  }
+  if (selectList.dataset.memo === undefined) {
+    selectors.memoInput.value = "";
+  } else {
+    selectors.memoInput.value = selectList.dataset.memo;
+  }
+  selectors.memoInput.classList.toggle("show-content");
+});
+
+selectors.popupReadBtn.addEventListener("click", () => {
+  selectors.memoInput.classList.remove("show-content");
+  togglePopup(selectors.popupRead);
+});
 // list main
 selectors.todoList.addEventListener("click", (e) => {
   const target = e.target;
@@ -104,14 +132,17 @@ selectors.todoList.addEventListener("click", (e) => {
     const deleteItem = target.closest(".list__item");
     deleteItem.remove();
   } else if (target.classList.contains("list__item__featrue__edit__button")) {
+    // edit list
     mode = "edit";
-    selectors.popup.classList.add("show-content");
-    selectors.popupRead.classList.add("hide-content");
+    togglePopup(selectors.popupEditAndAdd);
     setReadAndEditPopupContent(mode);
     selectList = e.target.closest(".list__item");
+  } else if (target.classList.contains("list__item__title")) {
+    // read list
+    selectList = e.target.closest(".list__item");
+    selectors.memoContent.textContent = selectList.dataset.memo;
+    togglePopup(selectors.popupRead);
   }
-
-  // read list
 });
 
 // // list add button event
