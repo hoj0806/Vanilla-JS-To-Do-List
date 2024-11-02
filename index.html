@@ -8,208 +8,111 @@
   </head>
   <body>
     <div class="wrapper">
+
       <!-- header -->
       <header class="header">
         <h1 class="header__title">TODO List</h1>
       </header>
 
       <!-- feature-box -->
-      <div class="feature-box">
-        <!-- search-box -->
-        <div class="feature-box__search">
-          <input class="feature-box__input" placeholder="할 일 검색"/>
+      <div class="task-controls">
+        <div class="task-controls__search">
+          <input class="task-controls__search-input" placeholder="할 일 검색"/>
         </div>
-        <!-- add-button-box -->
-        <div class="feature-box__add-button-box">
-          <div class="add-button-text">추가</div>
+      
+        <div class="task-controls__add">
+          <div class="task-controls__add-button">추가</div>
         </div>
+        
       </div>
 
       <div class="divider"></div>
 
       <!-- list main -->
       <main>
-          <ol class="todo-list-container">
+          <ol class="list">
 
-            <li class="list-item">
-              <div class="list-title">밥먹기</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
+            <li class="list__item">
+              <div class="list__item__title">밥먹기</div>
+              <div class="list__item__feature">
+                <button class="list__item__featrue__edit__button">
+                  <img src="/icons/listEditIcon.svg" class="list__item__featrue__edit__button__icon"/>
                 </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li>
-            <li class="list-item">
-              <div class="list-title">잠자기</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li>
-            <li class="list-item">
-              <div class="list-title">공부하기</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
+
+                <button class="list__item__featrue__delete__button">
+                  <img src="/icons/listDeleteIcon.svg" class="list__item__featrue__delete__button__icon"/>
                 </button>
               </div>
             </li>
 
-            <!-- <li class="list-item">
-              <div class="list-title">할 일 1</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
+            <li class="list__item">
+              <div class="list__item__title">공부하기</div>
+              <div class="list__item__feature">
+                <button class="list__item__featrue__edit__button">
+                  <img src="/icons/listEditIcon.svg" class="list__item__featrue__edit__button__icon"/>
                 </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li>
-            <li class="list-item">
-              <div class="list-title">할 일 2</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li>
-            <li class="list-item">
-              <div class="list-title">할 일 3</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
+
+                <button class="list__item__featrue__delete__button">
+                  <img src="/icons/listDeleteIcon.svg" class="list__item__featrue__delete__button__icon"/>
                 </button>
               </div>
             </li>
 
-            <li class="list-item">
-              <div class="list-title">할 일 1</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
+            <li class="list__item">
+              <div class="list__item__title">계란사기</div>
+              <div class="list__item__feature">
+                <button class="list__item__featrue__edit__button">
+                  <img src="/icons/listEditIcon.svg" class="list__item__featrue__edit__button__icon"/>
                 </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li>
-            <li class="list-item">
-              <div class="list-title">할 일 2</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li>
-            <li class="list-item">
-              <div class="list-title">할 일 3</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li>
 
-            <li class="list-item">
-              <div class="list-title">할 일 1</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
+                <button class="list__item__featrue__delete__button">
+                  <img src="/icons/listDeleteIcon.svg" class="list__item__featrue__delete__button__icon"/>
                 </button>
               </div>
             </li>
-            <li class="list-item">
-              <div class="list-title">할 일 2</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li>
-
-            <li class="list-item">
-              <div class="list-title">할 일 3</div>
-              <div class="list-button-box">
-                <button class="list-edit-btn">
-                  <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
-                </button>
-                <button class="list-delete-btn">
-                  <img src="/icons/listDeleteIcon.svg" class="list-delete-icon"/>
-                </button>
-              </div>
-            </li> -->
 
           </ol>
-        
       </main>
     </div>
 
-    <div class="pop-up-wrapper">
+    <!-- popup -->
+    <div class="popup">
+      
 
-      <div class="pop-up-box pop-up-edit-and-add">
-        <div class="pop-up-title">할 일 추가하기</div>
-        <div class="pop-up-add-input-box">
-          <input class="add-input"></input>
+      <!-- popup edit and add -->
+      <div class="popup__editAndAdd">
+        <div class="popup__editAndAdd__title">할 일 추가하기</div>
+        <div class="popup__editAndAdd__add">
+          <input class="popup__editAndAdd__add__input"></input>
         </div>
-        <button class="pop-up-confirm-btn">확인</button>
+        <button class="popup__editAndAdd__button">확인</button>
       </div>
 
-      <div class="pop-up-box pop-up-read">
-        <div class="pop-up-title read-pop-up-title">할 일 상세</div>
-       <div class="pop-up-read-title">
-          
-       </div>
-       <div class="pop-up-memo">
-        <div>MEMO</div>
-        <div class="memo-content"></div>
-        <textarea class="memo-input"></textarea>
-        <button class="memo-button">메모하기</button>
-       </div>
-       
-       <div class="list-date">
 
-       </div>
-       <div>
 
-        <div class="hashtagBox">
-         
+
+      <!-- popup read -->
+      <div class="popup__read">
+        <div class="popup__read__title">할 일 상세</div> 
+       <div class="popup__read__memo">
+        <div class="popup__read__memo__title">MEMO</div>
+        <div class="popup__read__memo__content"></div>
+        <textarea class="popup__read__memo__input"></textarea>
+        <button class="popup__read__memo__button">메모하기</button>
+       </div>
+       <div class="popup__date">
+       </div>
+       <div class="popup__hashTag">
+        <div class="popup__hashTag__content">
         </div>
-         <button class="hashtag-add-button">해시태그 추가</button>
-         <input class="hashtag-input"/>
+         <button class="popup__hashTag__button">해시태그 추가</button>
+         <input class="popup__hashTag__input"/>
         </div>
-        <button class="pop-up-confirm-btn-read">확인</button>
+        <button class="popup__read__button">확인</button>
       </div>
 
     </div>
+
     <script src="scripts/index.js"></script>
   </body>
 </html>
