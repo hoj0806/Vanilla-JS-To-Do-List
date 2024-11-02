@@ -2,12 +2,10 @@ import selectors from "./selectors.js";
 
 let selectList;
 let addListTitle;
+let mode;
 
 // fuction
 const addList = () => {
-  selectors.popup.classList.remove("show-content");
-  selectors.addInput.value = "";
-
   const listItemHTML = `<li class="list__item">
   <div class="list__item__title">${addListTitle}</div>
   <div class="list__item__feature">
@@ -23,32 +21,64 @@ const addList = () => {
   insertHTMLbeforeend(selectors.todoList, listItemHTML);
 };
 
+const editList = () => {
+  selectList.children[0].textContent = selectors.editAndAddInput.value;
+};
+
 const insertHTMLbeforeend = (parent, html) => {
   parent.insertAdjacentHTML("beforeend", html);
 };
 
+const setReadAndEditPopupContent = (mode) => {
+  if (mode === "add") {
+    selectors.popupEditAndAddTitle.textContent = "할 일 추가하기";
+    selectors.popupEditAndAddBtn.textContent = "추가";
+  } else if (mode === "edit") {
+    selectors.popupEditAndAddTitle.textContent = "할 일 수정하기";
+    selectors.popupEditAndAddBtn.textContent = "수정";
+  }
+};
+
+const initEditAndAddPopup = () => {
+  selectors.popup.classList.remove("show-content");
+  selectors.editAndAddInput.value = "";
+};
 // Event handler
 
 // <-----------task controls------------>
 
 // add list
 selectors.listAddBtn.addEventListener("click", () => {
+  mode = "add";
   selectors.popup.classList.add("show-content");
   selectors.popupRead.classList.add("hide-content");
+  setReadAndEditPopupContent(mode);
 });
+
+// <----------------popup---------------->
 
 // popup edit and add
 selectors.popupEditAndAddBtn.addEventListener("click", () => {
-  addList();
+  if (mode === "add") {
+    addList();
+  } else if (mode === "edit") {
+    editList();
+  }
+  initEditAndAddPopup();
 });
 
-selectors.addInput.addEventListener("keydown", (e) => {
+selectors.editAndAddInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    addList();
+    if (mode === "add") {
+      addList();
+    } else if (mode === "edit") {
+      editList();
+    }
+    initEditAndAddPopup();
   }
 });
 
-selectors.addInput.addEventListener("input", (e) => {
+selectors.editAndAddInput.addEventListener("input", (e) => {
   addListTitle = e.target.value;
 });
 
@@ -61,7 +91,11 @@ selectors.todoList.addEventListener("click", (e) => {
     const deleteItem = target.closest(".list__item");
     deleteItem.remove();
   } else if (target.classList.contains("list__item__featrue__edit__button")) {
+    mode = "edit";
     selectors.popup.classList.add("show-content");
+    selectors.popupRead.classList.add("hide-content");
+    setReadAndEditPopupContent(mode);
+    selectList = e.target.closest(".list__item");
   }
 
   // read list
@@ -80,7 +114,7 @@ selectors.todoList.addEventListener("click", (e) => {
 // popupBtn.addEventListener("click", (e) => {
 //   if (e.target.textContent === "추가") {
 //     const html = `<li class="list-item">
-//               <div class="list-title">${addInput.value}</div>
+//               <div class="list-title">${editAndAddInput.value}</div>
 //               <div class="list-button-box">
 //                 <button class="list-edit-btn">
 //                   <img src="/icons/listEditIcon.svg" class="list-edit-icon"/>
@@ -92,7 +126,7 @@ selectors.todoList.addEventListener("click", (e) => {
 //             </li>`;
 //     listContainer.insertAdjacentHTML("beforeend", html);
 //   } else if (e.target.textContent === "수정") {
-//     selectList.children[0].textContent = addInput.value;
+//     selectList.children[0].textContent = editAndAddInput.value;
 //   }
 
 //   popupWrapper.classList.remove("show-pop-up");
@@ -111,7 +145,7 @@ selectors.todoList.addEventListener("click", (e) => {
 //     popupBtn.textContent = "수정";
 //     const editItem = e.target.closest(".list-item");
 //     const listTitle = editItem.children[0].textContent;
-//     addInput.value = listTitle;
+//     editAndAddInput.value = listTitle;
 //     selectList = editItem;
 //   }
 

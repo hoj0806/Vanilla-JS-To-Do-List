@@ -11,8 +11,9 @@ const selectors = {
 
   // popup edit and add
   popupEditAndAdd: document.querySelector(".popup__editAndAdd"),
-  addInput: document.querySelector(".popup__editAndAdd__add__input"),
+  editAndAddInput: document.querySelector(".popup__editAndAdd__add__input"),
   popupEditAndAddBtn: document.querySelector(".popup__editAndAdd__button"),
+  popupEditAndAddTitle: document.querySelector(".popup__editAndAdd__title"),
 
   // popup read
   popupRead: document.querySelector(".popup__read"),
