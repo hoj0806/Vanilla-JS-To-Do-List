@@ -7,8 +7,12 @@ const selectors = {
   todoList: document.querySelector(".list"),
 
   // popup
+  popup: document.querySelector(".popup"),
+
+  // popup edit and add
   popupEditAndAdd: document.querySelector(".popup__editAndAdd"),
   addInput: document.querySelector(".popup__editAndAdd__add__input"),
+  popupEditAndAddBtn: document.querySelector(".popup__editAndAdd__button"),
 
   // popup read
   popupRead: document.querySelector(".popup__read"),

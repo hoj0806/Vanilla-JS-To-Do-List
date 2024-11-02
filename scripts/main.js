@@ -1,16 +1,70 @@
 import selectors from "./selectors.js";
 
 let selectList;
+let addListTitle;
+
+// fuction
+const addList = () => {
+  selectors.popup.classList.remove("show-content");
+  selectors.addInput.value = "";
+
+  const listItemHTML = `<li class="list__item">
+  <div class="list__item__title">${addListTitle}</div>
+  <div class="list__item__feature">
+    <button class="list__item__featrue__edit__button">
+      <img src="/icons/listEditIcon.svg" class="list__item__featrue__edit__button__icon"/>
+    </button>
+
+    <button class="list__item__featrue__delete__button">
+      <img src="/icons/listDeleteIcon.svg" class="list__item__featrue__delete__button__icon"/>
+    </button>
+  </div>
+  </li>`;
+  insertHTMLbeforeend(selectors.todoList, listItemHTML);
+};
+
+const insertHTMLbeforeend = (parent, html) => {
+  parent.insertAdjacentHTML("beforeend", html);
+};
 
 // Event handler
+
+// <-----------task controls------------>
+
+// add list
+selectors.listAddBtn.addEventListener("click", () => {
+  selectors.popup.classList.add("show-content");
+  selectors.popupRead.classList.add("hide-content");
+});
+
+// popup edit and add
+selectors.popupEditAndAddBtn.addEventListener("click", () => {
+  addList();
+});
+
+selectors.addInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addList();
+  }
+});
+
+selectors.addInput.addEventListener("input", (e) => {
+  addListTitle = e.target.value;
+});
 
 // list main
 selectors.todoList.addEventListener("click", (e) => {
   const target = e.target;
+
+  // delete list
   if (target.classList.contains("list__item__featrue__delete__button")) {
     const deleteItem = target.closest(".list__item");
     deleteItem.remove();
+  } else if (target.classList.contains("list__item__featrue__edit__button")) {
+    selectors.popup.classList.add("show-content");
   }
+
+  // read list
 });
 
 // // list add button event

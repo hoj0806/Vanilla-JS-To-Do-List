@@ -228,10 +228,10 @@ button {
   margin-top: 1rem;
 }
 
-.show-popup {
+.show-content {
   display: block;
 }
 
-.hide-popup {
+.hide-content {
   display: none;
 }
