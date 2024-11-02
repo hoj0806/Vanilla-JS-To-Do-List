@@ -1,28 +1,9 @@
-// selectors
+import selectors from "./selectors.js";
 
-// popup
-const popupWrapper = document.querySelector(".pop-up-wrapper");
-const popupBox = document.querySelector(".pop-up-box");
-const popupBtn = document.querySelector(".pop-up-confirm-btn");
-const popupTitle = document.querySelector(".pop-up-title");
-const editAndAddPopup = document.querySelector(".pop-up-edit-and-add");
-const readPopup = document.querySelector(".pop-up-read");
-const popupReadTitle = document.querySelector(".pop-up-read-title");
-const popupReadConfirmBtn = document.querySelector(".pop-up-confirm-btn-read");
-
-const listAddBtn = document.querySelector(".feature-box__add-button-box");
-const addInput = document.querySelector(".add-input");
-const listContainer = document.querySelector(".todo-list-container");
-const memoBtn = document.querySelector(".memo-button");
-const memoInput = document.querySelector(".memo-input");
-const memoContent = document.querySelector(".memo-content");
-const hasgTagInput = document.querySelector(".hashtag-input");
-const hasgTagBox = document.querySelector(".hashtagBox");
-const searchInput = document.querySelector(".feature-box__input");
 let selectList;
 
 // Event handler
-
+console.log(selectors);
 // list add button event
 listAddBtn.addEventListener("click", () => {
   popupWrapper.classList.add("show-pop-up");
