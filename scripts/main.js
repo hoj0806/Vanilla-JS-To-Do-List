@@ -47,6 +47,19 @@ const initEditAndAddPopup = () => {
 
 // <-----------task controls------------>
 
+// list search
+selectors.searchInput.addEventListener("input", (e) => {
+  const searchInput = e.target.value;
+  selectors.listItems.forEach((list) => {
+    const title = list.children[0].textContent;
+    if (!title.includes(searchInput)) {
+      list.classList.add("hide-content");
+    } else {
+      list.classList.remove("hide-content");
+    }
+  });
+});
+
 // add list
 selectors.listAddBtn.addEventListener("click", () => {
   mode = "add";

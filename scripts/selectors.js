@@ -5,7 +5,7 @@ const selectors = {
 
   // list main
   todoList: document.querySelector(".list"),
-
+  listItems: document.querySelectorAll(".list__item"),
   // popup
   popup: document.querySelector(".popup"),
 
