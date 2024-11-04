@@ -18,19 +18,12 @@ const selectors = {
   // popup read
   popupRead: document.querySelector(".popup__read"),
   popupReadBtn: document.querySelector(".popup__read__button"),
+  popupReadTitle: document.querySelector(".popup__read__title"),
   memoContent: document.querySelector(".popup__read__memo__content"),
   memoInput: document.querySelector(".popup__read__memo__input"),
   memoBtn: document.querySelector(".popup__read__memo__button"),
   hasgTagBox: document.querySelector(".popup__hashTag__content"),
   hasgTagInput: document.querySelector(".popup__hashTag__input"),
-
-  popupBox: document.querySelector(".pop-up-box"),
-  popupBtn: document.querySelector(".pop-up-confirm-btn"),
-  popupTitle: document.querySelector(".pop-up-title"),
-  editAndAddPopup: document.querySelector(".pop-up-edit-and-add"),
-  readPopup: document.querySelector(".pop-up-read"),
-  popupReadTitle: document.querySelector(".pop-up-read-title"),
-  popupReadConfirmBtn: document.querySelector(".pop-up-confirm-btn-read"),
 };
 
 export default selectors;

@@ -20,7 +20,7 @@ const togglePopup = (popup) => {
 };
 
 const addList = () => {
-  const listItemHTML = `<li class="list__item">
+  const listItemHTML = `<li class="list__item" data-date=${formattedDate}>
   <div class="list__item__title">${addListTitle}</div>
   <div class="list__item__date">${formattedDate}</div>
   <div class="list__item__feature">
@@ -150,6 +150,7 @@ selectors.todoList.addEventListener("click", (e) => {
     // read list
     selectList = e.target.closest(".list__item");
     selectors.memoContent.textContent = selectList.dataset.memo;
+    selectors.popupReadTitle.textContent = selectList.children[0].textContent;
     togglePopup(selectors.popupRead);
   }
 });
