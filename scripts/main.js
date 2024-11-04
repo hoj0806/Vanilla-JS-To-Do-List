@@ -174,7 +174,7 @@ selectors.todoList.addEventListener("click", (e) => {
     selectors.popupReadTitle.textContent = selectList.children[0].textContent;
     selectors.popupReadDate.textContent = selectList.dataset.date;
     const listHagTagContainer = selectList.children[1].children[1];
-    console.log(listHagTagContainer);
+
     selectors.hashTagContent.textContent = "";
     if (listHagTagContainer.textContent !== "해시태그가 없습니다") {
       [...listHagTagContainer.children].forEach((hashTag) => {
@@ -195,7 +195,6 @@ selectors.todoList.addEventListener("click", (e) => {
       target.textContent = "체크";
       select.children[0].style.textDecoration = "none";
     }
-    // console.log(selectTitle);
   }
 });
 
@@ -214,11 +213,8 @@ selectors.hashTagContent.addEventListener("click", (e) => {
     }
     const popupHashTag = e.target.closest(".list__item__hashTag__item");
     const listHashTag = selectList.children[1].children[1].children;
-    console.log(listHashTag);
-    console.log(popupHashTag);
+
     [...listHashTag].forEach((hashTag) => {
-      console.log(hashTag.textContent);
-      console.log(popupHashTag.children[1].textContent, hashTag.textContent);
       if (hashTag.textContent === popupHashTag.children[1].textContent) {
         hashTag.remove();
       }
