@@ -185,6 +185,20 @@ selectors.hasgTagInput.addEventListener("keydown", (e) => {
   }
 });
 
+selectors.hashTagContent.addEventListener("click", (e) => {
+  if (e.target.classList.contains("hashTag__delete__icon")) {
+    const popupHashTag = e.target.closest(".list__item__hashTag__item");
+    const listHashTag = selectList.children[1].children[1].children;
+    console.log(listHashTag);
+    console.log(popupHashTag);
+    [...listHashTag].forEach((hashTag) => {
+      if (hashTag.textContent === popupHashTag.children[1].textContent) {
+        hashTag.remove();
+      }
+    });
+    popupHashTag.remove();
+  }
+});
 // // list add button event
 // listAddBtn.addEventListener("click", () => {
 //   popupWrapper.classList.add("show-pop-up");
