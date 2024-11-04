@@ -151,6 +151,7 @@ selectors.todoList.addEventListener("click", (e) => {
     selectList = e.target.closest(".list__item");
     selectors.memoContent.textContent = selectList.dataset.memo;
     selectors.popupReadTitle.textContent = selectList.children[0].textContent;
+    selectors.popupReadDate.textContent = selectList.dataset.date;
     togglePopup(selectors.popupRead);
   }
 });
