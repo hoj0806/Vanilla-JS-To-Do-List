@@ -59,12 +59,20 @@ const setReadAndEditPopupContent = (mode) => {
 };
 
 const addHashTag = (event) => {
+  const listHagTagContainer = selectList.children[1].children[1];
+
   const html = ` <div class="list__item__hashTag__item">
   <div><img style="width: 1.4rem; height: 1.4rem; cursor: pointer;" src="/icons/hashTagDeleteIcon.svg" class="hashTag__delete__icon"></div>
   <div class="list__item__hashTag__item__title">#${event.target.value}</div>
 </div>`;
+  const listHashTagHtml = `<div class='list__item__hashTag__item'>#${event.target.value}</div>`;
+  if (listHagTagContainer.textContent === "해시태그가 없습니다") {
+    listHagTagContainer.textContent = "";
+  }
 
   selectors.hashTagContent.insertAdjacentHTML("beforeend", html);
+  listHagTagContainer.insertAdjacentHTML("beforeend", listHashTagHtml);
+
   event.target.value = "";
 };
 // Event handler
@@ -187,6 +195,11 @@ selectors.hasgTagInput.addEventListener("keydown", (e) => {
 
 selectors.hashTagContent.addEventListener("click", (e) => {
   if (e.target.classList.contains("hashTag__delete__icon")) {
+    const listHagTagContainer = selectList.children[1].children[1];
+
+    if (selectors.hashTagContent.children.length === 1) {
+      listHagTagContainer.textContent = "해시태그가 없습니다";
+    }
     const popupHashTag = e.target.closest(".list__item__hashTag__item");
     const listHashTag = selectList.children[1].children[1].children;
     console.log(listHashTag);
