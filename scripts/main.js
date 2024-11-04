@@ -58,6 +58,15 @@ const setReadAndEditPopupContent = (mode) => {
   }
 };
 
+const addHashTag = (event) => {
+  const html = ` <div class="list__item__hashTag__item">
+  <div><img style="width: 1.4rem; height: 1.4rem; cursor: pointer;" src="/icons/hashTagDeleteIcon.svg" class="hashTag__delete__icon"></div>
+  <div class="list__item__hashTag__item__title">#${event.target.value}</div>
+</div>`;
+
+  selectors.hashTagContent.insertAdjacentHTML("beforeend", html);
+  event.target.value = "";
+};
 // Event handler
 
 // <-----------task controls------------>
@@ -167,6 +176,12 @@ selectors.todoList.addEventListener("click", (e) => {
       select.children[0].style.textDecoration = "none";
     }
     // console.log(selectTitle);
+  }
+});
+
+selectors.hasgTagInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addHashTag(e);
   }
 });
 

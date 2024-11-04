@@ -26,6 +26,7 @@ const selectors = {
   hasgTagBox: document.querySelector(".popup__hashTag__content"),
   hasgTagInput: document.querySelector(".popup__hashTag__input"),
   hashTagDeleteIcon: document.querySelector(".hashTag__delete__icon"),
+  hashTagContent: document.querySelector(".popup__hashTag__content"),
 };
 
 export default selectors;
