@@ -24,7 +24,7 @@ const selectors = {
   memoInput: document.querySelector(".popup__read__memo__input"),
   memoBtn: document.querySelector(".popup__read__memo__button"),
 
-  hasgTagBox: document.querySelector(".popup__hashTag__content"),
+  popupHashTagContent: document.querySelector(".popup__hashTag__content"),
   hasgTagInput: document.querySelector(".popup__hashTag__input"),
   hashTagDeleteIcon: document.querySelector(".hashTag__delete__icon"),
   hashTagContent: document.querySelector(".popup__hashTag__content"),

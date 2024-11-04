@@ -173,6 +173,18 @@ selectors.todoList.addEventListener("click", (e) => {
     selectors.memoContent.textContent = selectList.dataset.memo;
     selectors.popupReadTitle.textContent = selectList.children[0].textContent;
     selectors.popupReadDate.textContent = selectList.dataset.date;
+    const listHagTagContainer = selectList.children[1].children[1];
+    console.log(listHagTagContainer);
+    selectors.hashTagContent.textContent = "";
+    if (listHagTagContainer.textContent !== "해시태그가 없습니다") {
+      [...listHagTagContainer.children].forEach((hashTag) => {
+        const html = ` <div class="list__item__hashTag__item">
+  <div><img style="width: 1.4rem; height: 1.4rem; cursor: pointer;" src="/icons/hashTagDeleteIcon.svg" class="hashTag__delete__icon"></div>
+  <div class="list__item__hashTag__item__title">${hashTag.textContent}</div>
+</div>`;
+        selectors.popupHashTagContent.insertAdjacentHTML("beforeend", html);
+      });
+    }
     togglePopup(selectors.popupRead);
   } else if (target.classList.contains("list__item__featrue__check")) {
     const select = target.closest(".list__item");
@@ -205,6 +217,8 @@ selectors.hashTagContent.addEventListener("click", (e) => {
     console.log(listHashTag);
     console.log(popupHashTag);
     [...listHashTag].forEach((hashTag) => {
+      console.log(hashTag.textContent);
+      console.log(popupHashTag.children[1].textContent, hashTag.textContent);
       if (hashTag.textContent === popupHashTag.children[1].textContent) {
         hashTag.remove();
       }
