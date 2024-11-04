@@ -243,3 +243,7 @@ button {
 .hide-content {
   display: none;
 }
+
+.list__item__date {
+  font-size: 1.5rem;
+}
