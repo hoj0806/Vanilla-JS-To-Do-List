@@ -22,7 +22,10 @@ const togglePopup = (popup) => {
 const addList = () => {
   const listItemHTML = `<li class="list__item" data-date=${formattedDate}>
   <div class="list__item__title">${addListTitle}</div>
-  <div class="list__item__date">${formattedDate}</div>
+<div style="display: flex; flex-direction: column;">
+<div class="list__item__date">${formattedDate}</div>
+<div class="list__item__hashTag">해시태그가 없습니다</div>
+</div>
   <div class="list__item__feature">
    <div class="list__item__featrue__check">체크</div>
     <button class="list__item__featrue__edit__button">

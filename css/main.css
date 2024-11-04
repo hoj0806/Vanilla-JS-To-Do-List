@@ -9,7 +9,7 @@ body {
 
 .wrapper {
   background-color: rgb(203, 217, 231);
-  width: 40rem;
+  width: 53rem;
   height: 60rem;
   position: absolute;
   top: 50%;
@@ -105,6 +105,23 @@ button {
   justify-content: space-between;
 }
 
+.list__item__date {
+  font-size: 1.5rem;
+}
+
+.list__item__hashTag {
+  font-size: 1.2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.list__item__hashTag__item {
+  background-color: burlywood;
+  padding: 0.3rem 0.3rem;
+  border-radius: 100px;
+  display: flex;
+  gap: 0.2rem;
+}
 .list__item__feature {
   margin-right: 1rem;
   display: flex;
@@ -232,6 +249,11 @@ button {
   margin-top: 2rem;
 }
 
+.popup__hashTag__content {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
 .popup__hashTag__button {
   margin-top: 2em;
 }
@@ -247,8 +269,4 @@ button {
 
 .hide-content {
   display: none;
-}
-
-.list__item__date {
-  font-size: 1.5rem;
 }

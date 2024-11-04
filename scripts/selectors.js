@@ -25,6 +25,7 @@ const selectors = {
   memoBtn: document.querySelector(".popup__read__memo__button"),
   hasgTagBox: document.querySelector(".popup__hashTag__content"),
   hasgTagInput: document.querySelector(".popup__hashTag__input"),
+  hashTagDeleteIcon: document.querySelector(".hashTag__delete__icon"),
 };
 
 export default selectors;
