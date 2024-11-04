@@ -24,6 +24,7 @@ const addList = () => {
   <div class="list__item__title">${addListTitle}</div>
   <div class="list__item__date">${formattedDate}</div>
   <div class="list__item__feature">
+   <div class="list__item__featrue__check">체크</div>
     <button class="list__item__featrue__edit__button">
       <img src="/icons/listEditIcon.svg" class="list__item__featrue__edit__button__icon"/>
     </button>
@@ -153,6 +154,16 @@ selectors.todoList.addEventListener("click", (e) => {
     selectors.popupReadTitle.textContent = selectList.children[0].textContent;
     selectors.popupReadDate.textContent = selectList.dataset.date;
     togglePopup(selectors.popupRead);
+  } else if (target.classList.contains("list__item__featrue__check")) {
+    const select = target.closest(".list__item");
+    if (target.textContent === "체크") {
+      target.textContent = "체크취소";
+      select.children[0].style.textDecoration = "line-through";
+    } else {
+      target.textContent = "체크";
+      select.children[0].style.textDecoration = "none";
+    }
+    // console.log(selectTitle);
   }
 });
 

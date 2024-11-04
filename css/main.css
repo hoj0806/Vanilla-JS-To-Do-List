@@ -107,6 +107,7 @@ button {
 
 .list__item__feature {
   margin-right: 1rem;
+  display: flex;
 }
 
 .list__item__featrue__edit__button,
@@ -122,6 +123,10 @@ button {
   pointer-events: none;
 }
 
+.list__item__featrue__check {
+  font-size: 2rem;
+  cursor: pointer;
+}
 /* popup */
 
 .popup {
